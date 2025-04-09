@@ -1,8 +1,15 @@
 {
   "manifest_version": 2,
   "name": "Wikipedia Without Links",
-  "version": "1.1",
+  "version": "1.2",
+  "author": "tempodat",
+  "developer": {
+    "name": "tempodat",
+    "url": "https://github.com/tempodat/"
+  },
   "description": "Removes links from Wikipedia articles. Click the icon to toggle the feature.",
+  "homepage": "https://github.com/tempodat/wikinolinks",
+
   "permissions": [
     "*://*.wikipedia.org/*",
     "storage"
@@ -11,7 +18,7 @@
     "default_icon": {
       "48": "icons/active48.png"
     },
-    "default_title": "Toggle Wikipedia Without Links"
+    "default_title": "Toggle Wikipedia Links"
   },
   "background": {
     "scripts": ["background.js"]
@@ -25,7 +32,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "your-extension-id@example.com",
+      "id": "wikinolinks@tempodat",
       "strict_min_version": "42.0"
     }
   }

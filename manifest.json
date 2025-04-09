@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Wikipedia Without Links",
+  "version": "1.0",
+  "description": "Removes links from Wikipedia articles to help you stay focused.",
+  "permissions": ["*://*.wikipedia.org/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.wikipedia.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "your-extension-id@example.com",
+      "strict_min_version": "42.0"
+    }
+  }
+}

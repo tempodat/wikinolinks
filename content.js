@@ -1,8 +1,15 @@
 (function () {
+  // Reload page when receiving a state change message.
+  browser.runtime.onMessage.addListener((message) => {
+    if (message.enabled !== undefined) {
+      window.location.reload();
+    }
+  });
+
   // Cache the main content container.
   const containers = document.getElementsByClassName("mw-parser-output");
   if (!containers || containers.length === 0) {
-    console.log("No mw-parser-output element found.");
+    console.log("[WNL] No mw-parser-output element found.");
     return;
   }
   const container = containers[0];
@@ -46,16 +53,13 @@
     for (const className of CLASSES_TO_PROCESS) {
       processElements(container.getElementsByClassName(className));
     }
-    console.log(`Removed hyperlinks from ${editedCount} elements. Happy camping!`);
+    console.log(`[WNL] Removed hyperlinks from ${editedCount} elements. Happy camping!`);
   }
 
   // Check the extension state; process page if enabled.
   browser.storage.local.get("enabled").then((result) => {
-    if (result.enabled) processPage();
-  });
-
-  // Reload page when receiving a state change message.
-  browser.runtime.onMessage.addListener((message) => {
-    if (message.enabled !== undefined) window.location.reload();
+    if (result.enabled) {
+      processPage();
+    } 
   });
 })();

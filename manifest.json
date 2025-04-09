@@ -1,9 +1,21 @@
 {
   "manifest_version": 2,
   "name": "Wikipedia Without Links",
-  "version": "1.0",
-  "description": "Removes links from Wikipedia articles to help you stay focused.",
-  "permissions": ["*://*.wikipedia.org/*"],
+  "version": "1.1",
+  "description": "Removes links from Wikipedia articles. Click the icon to toggle the feature.",
+  "permissions": [
+    "*://*.wikipedia.org/*",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/active48.png"
+    },
+    "default_title": "Toggle Wikipedia Without Links"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
     {
       "matches": ["*://*.wikipedia.org/*"],

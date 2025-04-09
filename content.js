@@ -6,45 +6,27 @@
     return;
   }
 
-  let removedCount = 0; // Counter for removed elements
   let editedCount = 0; // Counter for edited links
 
-  // Remove distracting elements, lets be honest if you're using this you're not going to be editing wikipedia
-  // removeClass("vector-body-before-content");
-  // removeClass("vector-page-toolbar");
-  // removeClass("mw-editsection");
-  // buggy, doesn't always work
-  // do this with ublock if you really want to
+  function processPage() {
+    // Process specific tag names within the content
+    unlinkTagText("p");
+    unlinkTagText("ul");
+    unlinkTagText("ol");
+    unlinkTagText("dd");
+    unlinkTagText("td");
 
-  // Process specific tag names within the content
-  unlinkTagText("p");
-  unlinkTagText("ul");
-  unlinkTagText("ol");
-  unlinkTagText("dd");
-  unlinkTagText("td");
+    // Process specific class names within the content
+    unlinkClassText("hatnote navigation-not-searchable");
+    unlinkClassText("thumbcaption");
+    unlinkClassText("infobox-label");
+    unlinkClassText("infobox-data plainlist");
+    unlinkClassText("infobox-data");``
 
-  // Process specific class names within the content
-  unlinkClassText("hatnote navigation-not-searchable");
-  unlinkClassText("thumbcaption");
-  unlinkClassText("infobox-label");
-  unlinkClassText("infobox-data plainlist");
-  unlinkClassText("infobox-data");
-
-  function removeClass(className) {
-    const elements = document.getElementsByClassName(className);
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].remove();
-    }
-    removedCount += elements.length;
-  }
-
-  function removeClassText(className) {
-    const container = content[0];
-    const elements = container.getElementsByClassName(className);
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].remove();
-    }
-    editedCount += elements.length;
+    // Log the total number of edited links
+    console.log(
+      `Removed hyperlinks from ${editedCount} elements. Happy camping!`
+    );
   }
 
   // Function to remove <a> tags from elements by tag name,
@@ -89,9 +71,17 @@
     }
   }
 
-  // Log the total number of edited links
-  console.log(
-    //`[WNL] Removed ${removedCount} elements, removed hyperlinks from ${editedCount} elements. Happy camping, stay focused!`
-    `Removed hyperlinks from ${editedCount} elements. Happy camping!`
-  );
+  // Check the current extension state upon load.
+  browser.storage.local.get('enabled').then((result) => {
+    if (result.enabled) {
+      processPage();
+    }
+  });
+
+  // Listen for state change messages.
+  browser.runtime.onMessage.addListener((message) => {
+    if (message.enabled !== undefined) {
+      window.location.reload();
+    }
+  });
 })();

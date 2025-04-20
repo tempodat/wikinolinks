@@ -1,0 +1,21 @@
+.mw-parser-output a:is([href^="/wiki/"],[href^="/w/"],[href*="wikipedia.org/"],[href*="wikidata.org/"]):not([href^="/wiki/Wikipedia:"],.extiw):not(.mw-file-description),
+.mw-parser-output :is(span.url) a,
+.mw-parser-output :is(.asbox) a[href^="/wiki/"],
+:is(#catlinks,#mw-indicator-coordinates) a,
+.mw-parser-output .Inline-Template a,
+.mw-parser-output a:has(> .geo-default) {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: inherit !important;
+}
+
+
+.mw-editsection,
+.navbar, 
+.navbar-mini,
+.vector-page-toolbar,
+.feedbackWrapper,
+.read-more-container {
+  display: none !important;
+}

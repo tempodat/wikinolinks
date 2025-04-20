@@ -1,0 +1,2 @@
+* Special behaviour for special pages (main page, settings page), maybe don't do anything on those pages?
+* Badge Icon (a-la https://stackoverflow.com/q/60879448/19109061) needs to show number of links blocked, by counting how many elements fit the css. How do I count them?

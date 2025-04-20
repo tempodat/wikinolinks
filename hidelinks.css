@@ -1,4 +1,4 @@
-.mw-parser-output a:is(.extiw,[href^="/wiki/"],[href^="/w/"],[href*="wikipedia.org/"],[href*="wikidata.org/"]):not([href^="/wiki/Wikipedia:"]):not(.mw-file-description),
+.mw-parser-output a:is([href^="/wiki/"],[href^="/w/"],[href*="wikipedia.org/"],[href*="wikidata.org/"]):not([href^="/wiki/Wikipedia:"],.extiw):not(.mw-file-description),
 .mw-parser-output :is(span.url) a,
 .mw-parser-output :is(.asbox) a[href^="/wiki/"],
 :is(#catlinks,#mw-indicator-coordinates) a,

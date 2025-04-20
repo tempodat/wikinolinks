@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Wikipedia Without Links",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "tempodat",
   "developer": {
     "name": "tempodat",
@@ -26,7 +26,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.wikipedia.org/*"],
-      "css": ["hidelinks.css"],
+      "js": ["content.js"],
       "run_at": "document_end"
     }
   ],

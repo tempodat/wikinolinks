@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Wikipedia Without Links",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "author": "tempodat",
   "developer": {
     "name": "tempodat",
@@ -21,13 +21,12 @@
     "default_title": "Toggle Wikipedia Links"
   },
   "background": {
-    "scripts": ["lib/jquery-3.7.1.min.js", "background.js"]
+    "scripts": ["background.js"]
   },
   "content_scripts": [
     {
       "matches": ["*://*.wikipedia.org/*"],
       "css": ["hidelinks.css"],
-      "js": ["lib/jquery-3.7.1.min.js", "content.js"],
       "run_at": "document_end"
     }
   ],

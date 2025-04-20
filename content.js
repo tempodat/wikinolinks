@@ -47,13 +47,9 @@
 
   // Process all specified tags and classes within the container.
   function processPage() {
-    for (const tag of TAGS_TO_PROCESS) {
-      processElements(container.getElementsByTagName(tag));
-    }
-    for (const className of CLASSES_TO_PROCESS) {
-      processElements(container.getElementsByClassName(className));
-    }
-    console.log(`[WNL] Removed hyperlinks from ${editedCount} elements. Happy camping!`);
+    $('.mw-parser-output > p a').addClass('deleted-link');
+    $('.mw-parser-output > ul > li a').addClass('deleted-link');
+    
   }
 
   // Check the extension state; process page if enabled.

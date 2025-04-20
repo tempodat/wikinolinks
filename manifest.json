@@ -21,12 +21,13 @@
     "default_title": "Toggle Wikipedia Links"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["lib/jquery-3.7.1.min.js", "background.js"]
   },
   "content_scripts": [
     {
       "matches": ["*://*.wikipedia.org/*"],
-      "js": ["content.js"],
+      "css": ["hidelinks.css"],
+      "js": ["lib/jquery-3.7.1.min.js", "content.js"],
       "run_at": "document_end"
     }
   ],

@@ -1,0 +1,6 @@
+.deleted-link {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: inherit !important;
+}
